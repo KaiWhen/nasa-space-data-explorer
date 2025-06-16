@@ -1,0 +1,45 @@
+{
+	"name": "nasa-space-data-explorer",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "NODE_ENV=development tsx --watch --env-file .env backend/src/index.ts",
+		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend && tsc -p backend",
+		"build:backend": "tsc -p backend",
+		"start": "NODE_ENV=production node --env-file .env backend/dist/src/index.js",
+		"type-check": "tsc --noEmit",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix",
+		"format": "prettier --write ./backend",
+		"format:check": "prettier --check ./backend",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Kevin Wang",
+	"license": "MIT",
+	"type": "module",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^5.1.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.29.0",
+		"@tsconfig/node23": "^23.0.2",
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.0.1",
+		"eslint": "^9.29.0",
+		"eslint-config-prettier": "^10.1.5",
+		"eslint-plugin-prettier": "^5.4.1",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"eslint-plugin-react-refresh": "^0.4.19",
+		"globals": "^16.0.0",
+		"prettier": "^3.5.3",
+		"tsx": "^4.20.3",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.34.0"
+	},
+	"imports": {
+		"#*": "./src/*"
+	}
+}
