@@ -1,37 +1,53 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+@theme {
+  --color-primary: #262626;
+  --color-secondary: #f9fafb;
+  --color-accent: #ef4444;
+}
 
 @layer base {
   body {
     @apply font-[Rubik];
   }
+
   li {
     @apply px-4;
-    @apply cursor-pointer
+    @apply cursor-pointer;
+  }
+
+  h1 {
+    @apply leading-[1.1] tracking-tight font-semibold;
+  }
+
+  label {
+    @apply block text-sm font-medium text-secondary mb-1;
+  }
+
+  select {
+    @apply w-full px-3 py-2 text-secondary border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent focus:border-accent;
+  }
+
+  input {
+    @apply w-full px-3 py-2 text-secondary border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent focus:border-accent;
+  }
+
+  option {
+    @apply text-zinc-500;
   }
 }
 
 @keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .animate-fade-in-out {
   animation: fadeInOut 2s ease-in-out infinite;
 }
-
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-*/

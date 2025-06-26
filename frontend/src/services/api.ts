@@ -1,12 +1,12 @@
 import type { ApiResponse } from "../types/api";
 
-const API_URL = import.meta.env.API_BASE_URL || "http://localhost:3000";
+const API_URL: string = import.meta.env.API_BASE_URL ?? "http://localhost:3000";
 
 export async function fetchNasaData<T>(url: string): Promise<ApiResponse<T>> {
-    const response = await fetch(`${API_URL}${url}`);
-    if (!response.ok) {
-        throw new Error(`Error fetching APOD: ${response.statusText}`);
-    }
-    const data: ApiResponse<T> = await response.json();
-    return data;
+  const response = await fetch(`${API_URL}${url}`);
+  if (!response.ok) {
+    throw new Error(`Error fetching APOD: ${response.statusText}`);
+  }
+  const data: ApiResponse<T> = await response.json();
+  return data;
 }

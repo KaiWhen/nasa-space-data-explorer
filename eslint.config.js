@@ -25,6 +25,7 @@ export default tseslint.config(
     files: ['backend/**/*.{ts}'],
 		rules: {
 			'no-console': 'off',
+      "@typescript-eslint/restrict-template-expressions": "ignore"
 		},
   },
   {

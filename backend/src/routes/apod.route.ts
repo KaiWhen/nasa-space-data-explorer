@@ -1,8 +1,8 @@
-import express from 'express';
-import { getApodController } from '../controllers/apod.controller.js';
+import express from "express";
+import { getApodController } from "../controllers/apod.controller.js";
 
 const router = express.Router();
 
-router.get('/', getApodController);
+router.get("/", getApodController);
 
 export default router;

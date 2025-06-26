@@ -1,5 +1,5 @@
 export interface APOD {
-    title: string;
-    copyright: string;
-    imageUrl: string;
+  title: string;
+  copyright: string;
+  imageUrl: string;
 }
