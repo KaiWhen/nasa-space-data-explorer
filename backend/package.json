@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "NODE_ENV=development tsx --watch --env-file .env backend/src/index.ts",
-		"build": "npm install && npm run build && tsc",
+		"build": "npm install && tsc",
 		"start": "NODE_ENV=production node --env-file .env dist/src/index.js",
 		"type-check": "tsc --noEmit",
 		"lint": "eslint .",
@@ -22,8 +22,7 @@
 		"@types/cors": "^2.8.19",
 		"axios": "^1.10.0",
 		"cors": "^2.8.5",
-		"express": "^5.1.0",
-		"react-chartjs-2": "^5.3.0"
+		"express": "^5.1.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.29.0",
