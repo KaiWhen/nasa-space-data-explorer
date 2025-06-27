@@ -10,11 +10,13 @@ const Mars: React.FC = () => {
     <div className="relative w-full min-h-screen flex flex-col lg:flex-row items-center justify-center">
       <div className="max-w-[1400px] w-full flex flex-col lg:flex-row justify-between items-center lg:items-start px-8">
         <Reveal x={-50} y={0} duration={1} delay={0.3}>
-          <img
-            className="p-12 max-sm:hidden max-sm:p-0 w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[600px] lg:h-[600px] xl:w-[650px] xl:h-[650px] hover:scale-101 duration-500"
-            src={marsImage}
-            alt="Mars Planet Image"
-          />
+          <a href="https://www.vecteezy.com/free-png/planet-mars">
+            <img
+              className="p-12 max-sm:hidden max-sm:p-0 w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[600px] lg:h-[600px] xl:w-[650px] xl:h-[650px] hover:scale-101 duration-500"
+              src={marsImage}
+              alt="Planet Mars PNGs by Vecteezy"
+            />
+          </a>
         </Reveal>
         <div className="flex flex-col justify-start items-start w-full lg:w-1/2 lg:pl-8">
           <div className="lg:py-8">

@@ -47,7 +47,7 @@ const LineChart: React.FC<LineChartProps> = ({ data, solKeys }) => {
 
   return (
     <div>
-      <Line data={lineData} options={config} height={200}/>
+      <Line data={lineData} options={config} height={200} />
     </div>
   );
 };
