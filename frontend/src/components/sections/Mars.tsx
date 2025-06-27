@@ -2,8 +2,8 @@ import React from "react";
 import marsImage from "../../assets/images/mars2.png";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
-import SlideBox from "../ui/SlideBox/SlideBox";
-import { Reveal } from "../animations/Reveal";
+import SlideBox from "../animations/SlideBox/SlideBox";
+import { Reveal } from "../ui/Reveal";
 
 const Mars: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const Mars: React.FC = () => {
       <div className="max-w-[1400px] w-full flex flex-col lg:flex-row justify-between items-center lg:items-start px-8">
         <Reveal x={-50} y={0} duration={1} delay={0.3}>
           <img
-            className="p-12 w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[600px] lg:h-[600px] xl:w-[650px] xl:h-[650px] hover:scale-101 duration-500"
+            className="p-12 max-sm:hidden max-sm:p-0 w-[250px] h-[250px] md:w-[350px] md:h-[350px] lg:w-[600px] lg:h-[600px] xl:w-[650px] xl:h-[650px] hover:scale-101 duration-500"
             src={marsImage}
             alt="Mars Planet Image"
           />

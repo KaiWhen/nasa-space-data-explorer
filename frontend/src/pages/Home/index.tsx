@@ -1,13 +1,13 @@
 import React from "react";
-import Hero from "../../components/home/Hero";
-import StarfieldBackground from "../../components/animations/StarfieldBackground";
-import Mars from "../../components/home/Mars";
-import Navbar from "../../components/ui/Navbar";
-import MoreSoon from "../../components/home/MoreSoon";
+import Hero from "../../components/sections/Hero";
+import StarfieldBackground from "../../components/ui/StarfieldBackground";
+import Mars from "../../components/sections/Mars";
+import Navbar from "../../components/layout/Navbar";
+import MoreSoon from "../../components/sections/MoreSoon";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="relative">
+    <div className="relative z-0 bg-black">
       <StarfieldBackground />
       <Navbar />
       <div className="z-10 relative h-screen overflow-y-scroll snap-y snap-mandatory md:snap-center">

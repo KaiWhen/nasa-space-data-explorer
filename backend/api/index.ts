@@ -1,12 +1,10 @@
 import express from "express";
-import path from "path";
 import cors from "cors";
 import { Request } from "express-serve-static-core";
 import apodRouter from "../src/routes/apod.route.js";
 import roverRouter from "../src/routes/rover.route.js";
 import insightRouter from "../src/routes/insight.route.js";
 
-const __dirname = path.resolve();
 const app = express();
 const port = process.env.PORT ?? "9001";
 

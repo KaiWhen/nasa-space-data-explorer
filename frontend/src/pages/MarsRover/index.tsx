@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Gallery from "../../components/ui/Gallery";
 import useFetch from "../../hooks/useFetch";
 import type { Photo } from "../../types/roverPhoto";
-import StarfieldBackground from "../../components/animations/StarfieldBackground";
-import Navbar from "../../components/ui/Navbar";
+import StarfieldBackground from "../../components/ui/StarfieldBackground";
+import Navbar from "../../components/layout/Navbar";
+import { Footer } from "../../components/layout/Footer";
 
 const MarsRoverPage: React.FC = () => {
   const [rover, setRover] = useState<string>("curiosity");
@@ -15,9 +16,9 @@ const MarsRoverPage: React.FC = () => {
     `/rover?rover=${rover}${camera !== "all" ? `&camera=${camera}` : ""}&earth_date=${date}&page=${page}`,
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    refetch();
+    await refetch();
   };
 
   const cameras = {
@@ -42,11 +43,11 @@ const MarsRoverPage: React.FC = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-0 bg-black">
       <StarfieldBackground />
       <Navbar initialScrollState={true} />
 
-      <div className="z-10 relative min-h-screen">
+      <div className="z-10 relative min-h-screen w-full flex flex-col justify-center items-center">
         <div className="container mx-auto px-4 py-24">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-3xl font-bold mb-6 text-center text-secondary">
@@ -87,7 +88,7 @@ const MarsRoverPage: React.FC = () => {
                       }}
                     >
                       <option value="all">All Cameras</option>
-                      {cameras[rover as keyof typeof cameras]?.map((cam) => (
+                      {cameras[rover as keyof typeof cameras].map((cam) => (
                         <option key={cam} value={cam}>
                           {cam}
                         </option>
@@ -171,7 +172,9 @@ const MarsRoverPage: React.FC = () => {
             </div>
           </div>
         </div>
-        S N
+        <div className="absolute bottom-4 text-center text-[12px]">
+          <Footer />
+        </div>
       </div>
     </div>
   );

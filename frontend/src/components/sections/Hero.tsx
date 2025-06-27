@@ -5,7 +5,7 @@ import useFetch from "../../hooks/useFetch";
 import type { APOD } from "../../types/apod";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { Reveal } from "../animations/Reveal";
+import { Reveal } from "../ui/Reveal";
 
 const Hero: React.FC = () => {
   const { data, error, loading } = useFetch<APOD>("/apod");
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
 
         <div className="flex flex-col mb-4">
           <Reveal x={-30} y={0} duration={0.5} delay={0}>
-            <h1 className="px-4 text-5xl text-accent hover:scale-105 duration-500 md:text-6xl">
+            <h1 className="px-4 text-5xl text-accent font-semibold hover:scale-105 duration-500 md:text-6xl">
               NASA
             </h1>
           </Reveal>
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
             {error ? (
               <div className="text-red-500">Error: could not load image.</div>
             ) : loading ? (
-              <div className="rounded-lg max-h-[500px] max-w-[500px]">
+              <div className="rounded-lg max-h-[250px] max-w-[250px] md:max-h-[500px] md:max-w-[500px]">
                 <Skeleton
                   count={1}
                   width={500}
