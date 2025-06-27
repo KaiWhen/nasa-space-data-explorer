@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "NODE_ENV=development tsx --watch --env-file .env backend/src/index.ts",
-		"build": "npm install && tsc",
+		"dev": "NODE_ENV=development tsx --watch --env-file .env src/index.ts",
+		"buildnv": "npm install && tsc -p backend",
 		"start": "NODE_ENV=production node --env-file .env dist/src/index.js",
 		"type-check": "tsc --noEmit",
 		"lint": "eslint .",
@@ -39,8 +39,5 @@
 		"tsx": "^4.20.3",
 		"typescript": "^5.8.3",
 		"typescript-eslint": "^8.34.0"
-	},
-	"imports": {
-		"#*": "./*/src/*"
 	}
 }

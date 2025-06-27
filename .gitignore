@@ -15,4 +15,5 @@ backend/dist
 # Test coverage
 /coverage
 
-backend/.vscode
+.vscode
+.vercel
