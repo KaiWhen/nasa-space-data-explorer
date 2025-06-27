@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
     <div className="relative z-0 bg-black">
       <StarfieldBackground />
       <Navbar />
-      <div className="z-10 relative h-screen overflow-y-scroll snap-y snap-mandatory md:snap-center">
+      <div className="z-10 relative h-screen overflow-y-scroll snap-y snap-mandatory">
         <section className="snap-start h-screen flex items-center justify-center">
           <Hero />
         </section>
