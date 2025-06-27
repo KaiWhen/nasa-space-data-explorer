@@ -9,7 +9,7 @@ import { Footer } from "../../components/layout/Footer";
 const MarsRoverPage: React.FC = () => {
   const [rover, setRover] = useState<string>("curiosity");
   const [camera, setCamera] = useState<string>("all");
-  const [date, setDate] = useState<string>("2012-08-06");
+  const [date, setDate] = useState<string>("2022-08-06");
   const [page, setPage] = useState<string>("1");
 
   const { data, error, loading, refetch } = useFetch<Photo[]>(
