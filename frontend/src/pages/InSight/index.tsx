@@ -46,7 +46,7 @@ const InSightWeatherPage: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             <div className="p-6">
               {/* Title */}
-              <h1 className="flex flex-row justify-center text-3xl mb-6 text-center text-secondary">
+              <h1 className="flex flex-col sm:flex-row justify-center text-3xl mb-6 text-center text-secondary">
                 <p className="text-accent mr-2">InSight: </p> Mars Weather Data
               </h1>
 
