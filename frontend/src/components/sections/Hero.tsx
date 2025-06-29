@@ -60,7 +60,9 @@ const Hero: React.FC = () => {
                   id="img_anchor"
                 />
                 <Tooltip anchorSelect="#img_anchor" float place="right-end">
-                  {data?.title} by {data?.copyright}
+                  {data?.copyright
+                    ? `${data?.title} by ${data?.copyright}`
+                    : `${data?.title}`}
                 </Tooltip>
               </a>
             )}
