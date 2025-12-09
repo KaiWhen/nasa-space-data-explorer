@@ -4,13 +4,13 @@ A web app where you can explore some of NASA's data from their API: https://api.
 
 Developed with React, Express.js, Node.js.
 
-Currently you can look at photos taken by NASA's Mars Rovers and InSight's Mars Weather Data.
+Currently you can look at photos taken by NASA's Mars Rovers *(API endpoint removed/unavailable)* and InSight's Mars Weather Data.
 
 ### Visit the web app [here](https://nasa-space-data-explorer.vercel.app/)
 
 ### Endpoints used
 - APOD (Astronomy Picture of the Day)
-- Mars Rover Photos
+- Mars Rover Photos *(API endpoint removed/unavailable)*
 - InSight: Mars Weather Service API
 
 ### Things to note
