@@ -17,3 +17,5 @@ backend/dist
 
 .vscode
 .vercel
+
+pnpm-workspace.yaml
