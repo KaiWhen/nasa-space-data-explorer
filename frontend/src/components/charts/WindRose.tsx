@@ -1,6 +1,5 @@
 import React from "react";
 import "chart.js/auto";
-import { Chart as ChartJS } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
 import type { WindData } from "../../types/insightData";
 import type { ChartOptions } from "chart.js";
@@ -12,11 +11,8 @@ interface WindRoseProps {
 }
 
 const WindRose: React.FC<WindRoseProps> = ({ data, currSol, solKeys }) => {
-  ChartJS.defaults.borderColor = "#737373";
-  ChartJS.defaults.color = "#e5e5e5";
-
-  console.log(currSol);
   const key = Number(currSol) - Number(solKeys[0]);
+  const selectedWindData = data[key] ?? data[0];
 
   const windDirectionData = {
     labels: [
@@ -40,7 +36,7 @@ const WindRose: React.FC<WindRoseProps> = ({ data, currSol, solKeys }) => {
     datasets: [
       {
         label: "Wind Direction",
-        data: data[key].data,
+        data: selectedWindData?.data ?? [],
         backgroundColor: [
           "rgba(239, 68, 68, 0.2)",
           "rgba(234, 88, 12, 0.2)",

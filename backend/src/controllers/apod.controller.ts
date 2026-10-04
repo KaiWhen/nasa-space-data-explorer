@@ -1,26 +1,32 @@
+import { RequestHandler } from "express";
 import { getApod } from "../services/nasa.service.js";
-import { Request, Response } from "express-serve-static-core";
-import { APODResponse } from "../types/response.type.js";
 
-export async function getApodController(
-  req: Request,
-  res: Response<APODResponse>,
-): Promise<any> {
+export const getApodController: RequestHandler = async (_req, res) => {
   try {
     const data = await getApod();
-    return res.status(200).json({
+    const imageUrl =
+      data.media_type === "image"
+        ? (data.hdurl ?? data.url ?? "")
+        : (data.url ?? data.hdurl ?? "");
+
+    res.status(200).json({
       success: true,
       data: {
-        title: data.title,
-        copyright: data.copyright,
-        imageUrl: data.url,
+        title: data.title ?? "NASA APOD",
+        copyright: data.copyright ?? data.credit ?? "NASA",
+        imageUrl,
       },
     });
   } catch (error) {
-    console.error("APOD Controller: Error fetching APOD:", error);
-    return res.status(500).json({
+    const message =
+      error instanceof Error
+        ? error.message
+        : "APOD Controller: Failed to fetch APOD data";
+
+    console.error("APOD Controller: Error fetching APOD:", message);
+    res.status(502).json({
       success: false,
-      error: "APOD Controller: Failed to fetch APOD data",
+      error: message,
     });
   }
-}
+};

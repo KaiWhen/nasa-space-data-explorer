@@ -10,7 +10,7 @@ const mockData: WindData[] = [
 describe("WindRose", () => {
   it("renders a canvas without crashing for a valid sol", () => {
     const { container } = render(
-      <WindRose data={mockData} currSol="1" solKeys={["1", "2"]} />
+      <WindRose data={mockData} currSol="1" solKeys={["1", "2"]} />,
     );
     expect(container.querySelector("canvas")).toBeInTheDocument();
   });

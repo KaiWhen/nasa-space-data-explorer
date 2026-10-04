@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import StarfieldBackground from "../../components/ui/StarfieldBackground";
 import LineChart from "../../components/charts/LineChart";
 import WindRose from "../../components/charts/WindRose";
@@ -16,11 +16,7 @@ const InSightWeatherPage: React.FC = () => {
   const { data, error, loading } = useFetch<InsightData>("/insight");
   const [currSol, setCurrSol] = React.useState<string | null>(null);
 
-  useEffect(() => {
-    if (data?.solKeys && data.solKeys.length > 0 && currSol === null) {
-      setCurrSol(data.solKeys[0]);
-    }
-  }, [data?.solKeys, currSol]);
+  const selectedSol = currSol ?? data?.solKeys?.[0] ?? null;
 
   const handleSolChange = (newSol: string) => {
     setCurrSol(newSol);
@@ -149,7 +145,7 @@ const InSightWeatherPage: React.FC = () => {
                     <Radio
                       keys={data?.solKeys ?? []}
                       setSol={handleSolChange}
-                      selectedSol={currSol}
+                      selectedSol={selectedSol}
                     />
                   </div>
                   {loading ? (
@@ -157,10 +153,10 @@ const InSightWeatherPage: React.FC = () => {
                       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-secondary"></div>
                     </div>
                   ) : (
-                    currSol && (
+                    selectedSol && (
                       <WindRose
                         data={data?.WD ?? [emptyWindData]}
-                        currSol={currSol}
+                        currSol={selectedSol}
                         solKeys={data?.solKeys ?? ["0"]}
                       />
                     )

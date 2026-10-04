@@ -25,7 +25,7 @@ export const Reveal: React.FC<RevealProps> = ({
     if (isInView) {
       mainControls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, mainControls]);
 
   return (
     <div ref={scrollRef} className="overflow-hidden">

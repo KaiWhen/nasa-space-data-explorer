@@ -1,6 +1,5 @@
-import express from "express";
+import express, { Request } from "express";
 import cors from "cors";
-import { Request } from "express-serve-static-core";
 import apodRouter from "../src/routes/apod.route.js";
 import roverRouter from "../src/routes/rover.route.js";
 import insightRouter from "../src/routes/insight.route.js";

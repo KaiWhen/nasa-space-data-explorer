@@ -10,17 +10,20 @@ const HomePage: React.FC = () => {
     <div className="relative z-0 bg-black">
       <StarfieldBackground />
       <Navbar />
-      <div className="z-10 relative h-screen overflow-y-scroll snap-y snap-mandatory">
-        <section className="snap-start h-screen flex items-center justify-center">
+
+      <main className="relative z-10 h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
+        <section className="snap-start min-h-screen flex items-center justify-center">
           <Hero />
         </section>
-        <section className="snap-start h-screen flex items-center justify-center">
+
+        <section className="snap-start min-h-screen flex items-center justify-center">
           <Mars />
         </section>
-        <section className="snap-start h-screen flex items-center justify-center">
+
+        <section className="snap-start min-h-screen flex items-center justify-center">
           <MoreSoon />
         </section>
-      </div>
+      </main>
     </div>
   );
 };

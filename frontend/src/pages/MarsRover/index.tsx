@@ -6,11 +6,23 @@ import StarfieldBackground from "../../components/ui/StarfieldBackground";
 import Navbar from "../../components/layout/Navbar";
 import { Footer } from "../../components/layout/Footer";
 
+const roverDateDefaults = {
+  curiosity: "2012-08-06",
+  opportunity: "2004-01-25",
+  spirit: "2004-01-04",
+  perseverance: "2021-02-18",
+} as const;
+
 const MarsRoverPage: React.FC = () => {
   const [rover, setRover] = useState<string>("curiosity");
   const [camera, setCamera] = useState<string>("all");
-  const [date, setDate] = useState<string>("2022-08-06");
+  const [date, setDate] = useState<string>(roverDateDefaults.curiosity);
   const [page, setPage] = useState<string>("1");
+
+  const handleRoverChange = (nextRover: string) => {
+    setRover(nextRover);
+    setDate(roverDateDefaults[nextRover as keyof typeof roverDateDefaults]);
+  };
 
   const { data, error, loading, refetch } = useFetch<Photo[]>(
     `/rover?rover=${rover}${camera !== "all" ? `&camera=${camera}` : ""}&earth_date=${date}&page=${page}`,
@@ -65,7 +77,7 @@ const MarsRoverPage: React.FC = () => {
                       id="rover"
                       value={rover}
                       onChange={(e) => {
-                        setRover(e.target.value);
+                        handleRoverChange(e.target.value);
                       }}
                     >
                       <option className="text-zinc-500" value="curiosity">
@@ -106,9 +118,9 @@ const MarsRoverPage: React.FC = () => {
                         rover === "curiosity"
                           ? "2012-08-06"
                           : rover === "opportunity"
-                            ? "2004-01-24"
+                            ? "2004-01-25"
                             : rover === "spirit"
-                              ? "2004-01-03"
+                              ? "2004-01-04"
                               : rover === "perseverance"
                                 ? "2021-02-18"
                                 : "2012-08-06"

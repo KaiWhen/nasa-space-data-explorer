@@ -1,12 +1,14 @@
 export interface APODApiResponse {
-  copyright: string;
-  date: string;
-  explanation: string;
-  hdurl: string;
-  media_type: "image" | "video";
-  service_version: string;
-  title: string;
-  url: string;
+  copyright?: string;
+  credit?: string;
+  date?: string;
+  explanation?: string;
+  hdurl?: string;
+  media_type?: "image" | "video";
+  service_version?: string;
+  title?: string;
+  url?: string;
+  permalink?: string;
 }
 
 interface Photo {
@@ -31,6 +33,42 @@ interface Photo {
 
 export interface MarsRoverPhotosApiResponse {
   photos: Photo[];
+}
+
+export interface VoidIndexImageRecord {
+  id: number;
+  nasa_id?: number | string;
+  title?: string;
+  description?: string;
+  date?: string;
+  image_url?: string;
+  camera?: string;
+  credit?: string;
+  sol?: number;
+}
+
+export interface VoidIndexMarsResponse {
+  vehicle: string;
+  images: VoidIndexImageRecord[];
+  pagination: {
+    page: number;
+    limit: number;
+    total_count: number;
+    total_pages: number;
+    has_next: boolean;
+    has_prev: boolean;
+  };
+  filters: {
+    camera: string | null;
+    date_from: string | null;
+    date_to: string | null;
+    order: string;
+    sol: number | null;
+    sol_max: number | null;
+    sol_min: number | null;
+    sort_by: string;
+  };
+  timestamp: string;
 }
 
 export interface SolWeather {
